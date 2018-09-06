@@ -7,11 +7,15 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+
+import androidmasterminds.com.androidotp.SmsInterface.SmsListener;
+import androidmasterminds.com.androidotp.SmsInterface.SmsReceivers;
 
 /**
  * Created by vadivel on 6/9/18.
@@ -48,6 +52,29 @@ public class PINVIEW extends LinearLayout {
 
 
         init(title);
+
+
+        SmsReceivers.bindListener(new SmsListener() {
+            @Override
+            public void messageReceived(String messageText) {
+
+                Log.e("sadasd",""+messageText);
+                try {
+
+
+                    otp1_txt.setText("" + messageText.charAt(0));
+                    otp2_txt.setText("" + messageText.charAt(1));
+                    otp3_txt.setText("" + messageText.charAt(2));
+                    otp4_txt.setText("" + messageText.charAt(3));
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+              
+
+            }
+        });
     }
 
     private  void SetPinType(Integer type)
@@ -85,6 +112,7 @@ public class PINVIEW extends LinearLayout {
         }
 
     }
+
 
     // Setup views
     private void init(Integer title) {
