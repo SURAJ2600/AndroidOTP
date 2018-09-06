@@ -1,2 +1,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="androidmasterminds.com.androidotp" />
+    package="androidmasterminds.com.androidotp" >
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:allowBackup="true"
+    
+        android:label="@string/app_name"
+     
+        android:supportsRtl="true"
+        >
+<receiver android:name=".SmsInterface.SmsReceivers">
+<intent-filter>
+    <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+</intent-filter>
+</receiver>
+    
+    </application>
+</manifest>
