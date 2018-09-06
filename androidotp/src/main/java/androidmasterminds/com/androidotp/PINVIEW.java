@@ -25,10 +25,10 @@ public class PINVIEW extends LinearLayout {
 
 
 
-    EditText otp1_txt;
-    EditText otp2_txt;
-    EditText otp3_txt;
-    EditText otp4_txt;
+    static EditText otp1_txt;
+    static EditText otp2_txt;
+    static EditText otp3_txt;
+    static EditText otp4_txt;
     public PINVIEW(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         setOrientation(LinearLayout.HORIZONTAL);
@@ -71,20 +71,20 @@ public class PINVIEW extends LinearLayout {
                 {
                     e.printStackTrace();
                 }
-              
+
 
             }
         });
     }
 
-    private  void SetPinType(Integer type)
+    public static void SetPinType(Integer type)
     {
         switch (type) {
             case 1:
 
                 otp1_txt.setInputType(InputType.TYPE_CLASS_TEXT);
 
-                otp3_txt.setInputType(InputType.TYPE_CLASS_TEXT);
+                otp2_txt.setInputType(InputType.TYPE_CLASS_TEXT);
                 otp3_txt.setInputType(InputType.TYPE_CLASS_TEXT);
 
                 otp4_txt.setInputType(InputType.TYPE_CLASS_TEXT);
@@ -92,7 +92,7 @@ public class PINVIEW extends LinearLayout {
             case 2:
                 otp1_txt.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
-                otp3_txt.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                otp2_txt.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 otp3_txt.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 otp4_txt.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
@@ -101,7 +101,7 @@ public class PINVIEW extends LinearLayout {
             case 3:
                 otp1_txt.setInputType(InputType.TYPE_CLASS_NUMBER);
 
-                otp3_txt.setInputType(InputType.TYPE_CLASS_NUMBER);
+                otp2_txt.setInputType(InputType.TYPE_CLASS_NUMBER);
                 otp3_txt.setInputType(InputType.TYPE_CLASS_NUMBER);
                 otp4_txt.setInputType(InputType.TYPE_CLASS_NUMBER);
 
@@ -111,6 +111,13 @@ public class PINVIEW extends LinearLayout {
 
         }
 
+    }
+
+    public static String GetPinNumber(){
+
+        return otp1_txt.getText().toString().trim()+""+otp2_txt
+                .getText().toString().trim()+""+otp3_txt.getText().toString().trim()+""
+                +otp4_txt.getText().toString().trim();
     }
 
 
