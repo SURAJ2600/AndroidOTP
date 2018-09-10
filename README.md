@@ -8,7 +8,7 @@ The AndroidOTP Verification  makes verifying phone numbers easy.This library sup
 
 # Getting started
 
-# MAVEN
+# Maven
 
 allprojects {
 		repositories {
@@ -17,7 +17,7 @@ allprojects {
 		}
 	}
   
- #  GRADLE
+ # Gradle
   
   dependencies {
 	        implementation 'com.github.SURAJ2600:AndroidOTP:v1.01'
