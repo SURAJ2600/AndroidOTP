@@ -6,9 +6,9 @@ This library allows you to implement a otp view mechanism in your app easily and
 
 The AndroidOTP Verification  makes verifying phone numbers easy.This library supports the verification of phone numbers via SMS very easily.
 
-Getting started
+# Getting started
 
-MAVEN
+# MAVEN
 
 allprojects {
 		repositories {
@@ -17,7 +17,7 @@ allprojects {
 		}
 	}
   
-  GRADLE
+ #  GRADLE
   
   dependencies {
 	        implementation 'com.github.SURAJ2600:AndroidOTP:v1.01'
