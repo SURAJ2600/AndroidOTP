@@ -22,3 +22,46 @@ allprojects {
   dependencies {
 	        implementation 'com.github.SURAJ2600:AndroidOTP:v1.01'
 	}
+	
+# Usage
+
+Add this to your layout file.
+
+        <androidmasterminds.com.androidotp.PINVIEW
+            android:id="@+id/pinviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></androidmasterminds.com.androidotp.PINVIEW>
+	 
+	 
+Add this in your activity.
+
+
+
+ @BindView(R.id.pinviews)
+    PINVIEW pinviews;
+
+    
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_otpverification);
+        ButterKnife.bind(this);
+
+        pinviews.SetPinType(2);
+       String pin= pinviews.GetPinNumber();
+       
+       
+ You can also set the pin view type using pinviews.SetPinType();
+ 
+ 1 --->  text,
+ 2 ---> password,
+ 3----> number
+ 
+ 
+ 
+ 
+ 
+        
+        
+
